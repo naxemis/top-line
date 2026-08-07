@@ -1,8 +1,8 @@
 import flet
 
-from ui.pages.abstract.page import Page
+from ui.views.abstract.view import View
 
-class StartPage(Page):
+class StartView(View):
     def run(self):
         self.page.add(
             flet.Text("Welcome to the Start Page!")

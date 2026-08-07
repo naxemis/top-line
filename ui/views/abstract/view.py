@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 import flet
 
-class Page(ABC):
+class View(ABC):
     def __init__(self, page: flet.Page):
         self.page = page
 
