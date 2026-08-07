@@ -6,7 +6,7 @@ def main(page: flet.Page):
     App(page)
 
 if __name__ == "__main__":
-    flet.app(target=main)
+    flet.run(main)
 
 
 
