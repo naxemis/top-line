@@ -43,7 +43,7 @@ gh label create "needs discussion" --repo "$REPO" --color "cc317c" --description
 # Area
 gh label create "area: core" --repo "$REPO" --color "7f2a94" --description "Related to core functionality" --force
 gh label create "area: cli" --repo "$REPO" --color "6e6e6e" --description "Related to command-line interface" --force
-gh label create "area: avalonia" --repo "$REPO" --color "1ca8dd" --description "Related to Avalonia UI framework" --force
+gh label create "area: ui" --repo "$REPO" --color "1ca8dd" --description "Related to user interface" --force
 
 # Dependencies
 gh label create "dependencies" --repo "$REPO" --color "0366d6" --description "Pull requests that update a dependency file" --force

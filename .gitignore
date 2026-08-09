@@ -1,5 +1,8 @@
 # IDEA
 .idea/*
 
+# Flet
+.flet
+
 # System
 .DS_Store
