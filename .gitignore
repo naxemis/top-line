@@ -4,6 +4,7 @@
 # .NET
 **/obj
 **/bin
+*.user
 
 # System
 .DS_Store
