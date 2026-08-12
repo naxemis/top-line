@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="TopLine.Cli/TopLine.Cli.csproj" />
+  <Project Path="TopLine.Core/TopLine.Core.csproj" />
+  <Project Path="TopLine.UI/TopLine.UI.csproj" />
+</Solution>

@@ -1,8 +1,10 @@
 # IDEA
-.idea/*
+**/.idea
 
-# Flet
-.flet
+# .NET
+**/obj
+**/bin
+*.user
 
 # System
 .DS_Store
