@@ -7,15 +7,9 @@ REPO=${1:?"Usage: $0 <owner/repo>"}
 
 # List of default GitHub labels to remove
 DEFAULT_LABELS=(
-  "bug"
-  "documentation"
-  "duplicate"
   "enhancement"
   "good first issue"
-  "help wanted"
   "invalid"
-  "question"
-  "wontfix"
 )
 
 echo "Removing default GitHub labels from $REPO..."
@@ -29,7 +23,14 @@ echo "Creating new labels for $REPO..."
 # Type
 gh label create "bug" --repo "$REPO" --color "d73a4a" --description "Bug or unexpected behavior" --force
 gh label create "feature" --repo "$REPO" --color "a2eeef" --description "New feature or improvement" --force
-gh label create "task" --repo "$REPO" --color "e4e669" --description "Internal development task" --force
+gh label create "refactor" --repo "$REPO" --color "8a2be2" --description "Code changes that do not add features" --force
+gh label create "chore" --repo "$REPO" --color "b2b2b2" --description "Maintenance, dependency updates, and chores" --force
+gh label create "dependencies" --repo "$REPO" --color "0366d6" --description "Pull requests that update a dependency file" --force
+gh label create "documentation" --repo "$REPO" --color "0366d6" --description "Documentation" --force
+gh label create "question" --repo "$REPO" --color "5bc0de" --description "Further information is requested" --force
+gh label create "wontfix" --repo "$REPO" --color "ff8c00" --description "Will not fix" --force
+gh label create "duplicate" --repo "$REPO" --color "9b9b9b" --description "Issue or PR that already exists" --force
+gh label create "help wanted" --repo "$REPO" --color "b31b1b" --description "Extra attention required from contributors" --force
 
 # Priority
 gh label create "priority: high" --repo "$REPO" --color "b60205" --description "Needs immediate attention" --force
@@ -41,11 +42,9 @@ gh label create "blocked" --repo "$REPO" --color "ee0701" --description "Blocked
 gh label create "needs discussion" --repo "$REPO" --color "cc317c" --description "Requires a decision first" --force
 
 # Area
-gh label create "area: core" --repo "$REPO" --color "7f2a94" --description "Related to core functionality" --force
+gh label create "area: core" --repo "$REPO" --color "6f42c1" --description "Related to core functionality" --force
 gh label create "area: cli" --repo "$REPO" --color "6e6e6e" --description "Related to command-line interface" --force
 gh label create "area: ui" --repo "$REPO" --color "1ca8dd" --description "Related to user interface" --force
-
-# Dependencies
-gh label create "dependencies" --repo "$REPO" --color "0366d6" --description "Pull requests that update a dependency file" --force
+gh label create "area: test" --repo "$REPO" --color "28a745" --description "Related to tests and CI" --force
 
 echo "Done. All labels created for $REPO."
