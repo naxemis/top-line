@@ -24,8 +24,8 @@ echo "Creating new labels for $REPO..."
 gh label create "bug" --repo "$REPO" --color "d73a4a" --description "Bug or unexpected behavior" --force
 gh label create "feature" --repo "$REPO" --color "a2eeef" --description "New feature or improvement" --force
 gh label create "refactor" --repo "$REPO" --color "8a2be2" --description "Code changes that do not add features" --force
-gh label create "chore" --repo "$REPO" --color "b2b2b2" --description "Maintenance, dependency updates, and chores" --force
-gh label create "dependencies" --repo "$REPO" --color "0366d6" --description "Pull requests that update a dependency file" --force
+gh label create "chore" --repo "$REPO" --color "b2b2b2" --description "Maintenance and chores" --force
+gh label create "dependencies" --repo "$REPO" --color "0366d6" --description "Dependencies updates" --force
 gh label create "documentation" --repo "$REPO" --color "0366d6" --description "Documentation" --force
 gh label create "question" --repo "$REPO" --color "5bc0de" --description "Further information is requested" --force
 gh label create "wontfix" --repo "$REPO" --color "ff8c00" --description "Will not fix" --force
