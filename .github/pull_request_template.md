@@ -6,7 +6,7 @@
 - Refs # (only reference/link to the topic, NO closing)
 -->
 
-## Change description
+## Description
 [Briefly describe what exactly this Pull Request changes and how it accomplishes the task]
 
 ## How to test it?
