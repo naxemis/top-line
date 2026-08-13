@@ -30,6 +30,7 @@ jobs:
         with:
           languages: csharp
           build-mode: manual
+          autodetect-languages: false
 
       - name: Build C# project
         run: dotnet build TopLine.slnx
