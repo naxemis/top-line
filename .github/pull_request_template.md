@@ -14,6 +14,10 @@
 2. Complete the steps...
 
 ## Pre-merge checklist
+<!--
+If a checklist item does not apply to this Pull Request, strike it through using ~~like this~~
+instead of removing it. This helps reviewers see the step was intentionally skipped.
+-->
 - [ ] The Pull Request title is clear, understandable, and consistent with project conventions (e.g., feat/fix)
 - [ ] The code complies with project standards and is formatted correctly
 - [ ] Documentation has been written for the code (if required)
