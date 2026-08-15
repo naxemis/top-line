@@ -22,6 +22,7 @@ echo "Creating new labels for $REPO..."
 
 # Type
 gh label create "bug" --repo "$REPO" --color "d73a4a" --description "Bug or unexpected behavior" --force
+gh label create "fix" --repo "$REPO" --color "0e8a16" --description "Fix for a bug or regression" --force
 gh label create "feature" --repo "$REPO" --color "a2eeef" --description "New feature or improvement" --force
 gh label create "refactor" --repo "$REPO" --color "8a2be2" --description "Code changes that do not add features" --force
 gh label create "chore" --repo "$REPO" --color "b2b2b2" --description "Maintenance and chores" --force
