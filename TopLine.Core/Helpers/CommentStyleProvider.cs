@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TopLine.Core.Helpers;
 
-public class CommentStyleProvider
+public class CommentStyleProvider(ILogger<CommentStyleProvider> logger)
 {
     private static readonly List<string> DoubleSlashExtensions = [ ".cs", ".js", ".java", ".cpp", ".c", ".h", ".hpp", ".ts", ".go", ".rs", ".kt", ".swift" ];
     private static readonly List<string> HashExtensions = [ ".py", ".gd", ".sh", ".bash", ".yml", ".yaml", ".tf", ".rb", ".pl", ".pm" ];
@@ -25,18 +25,11 @@ public class CommentStyleProvider
         { CommentStyle.AngleBracket, ("<!--", "-->") }
     };
 
-    private readonly ILogger _logger;
-
-    public CommentStyleProvider(ILogger<CommentStyleProvider> logger)
-    {
-        _logger = logger;
-    }
-
     public CommentStyle? GetCommentStyle(string fileExtension)
     {
         if (string.IsNullOrEmpty(fileExtension))
         {
-            _logger.LogWarning("File extension is null or empty!");
+            logger.LogWarning("File extension is null or empty!");
             return null;
         }
 
@@ -49,7 +42,7 @@ public class CommentStyleProvider
             }
         }
 
-        _logger.LogWarning("No comment style found for extension: {FileExtension}!", fileExtension);
+        logger.LogWarning("No comment style found for extension: {FileExtension}!", fileExtension);
         return null;
     }
 
