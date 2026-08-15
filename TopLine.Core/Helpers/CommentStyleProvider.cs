@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+
 namespace TopLine.Core.Helpers;
 
 public class CommentStyleProvider
@@ -23,9 +25,20 @@ public class CommentStyleProvider
         { CommentStyle.AngleBracket, ("<!--", "-->") }
     };
 
+    private readonly ILogger _logger;
+
+    public CommentStyleProvider(ILogger<CommentStyleProvider> logger)
+    {
+        _logger = logger;
+    }
+
     public CommentStyle? GetCommentStyle(string fileExtension)
     {
-        if (string.IsNullOrEmpty(fileExtension)) return null;
+        if (string.IsNullOrEmpty(fileExtension))
+        {
+            _logger.LogWarning("File extension is null or empty!");
+            return null;
+        }
 
         string normalizedExtension = fileExtension.ToLower();
         foreach (var style in _styleExtensions)
@@ -36,6 +49,7 @@ public class CommentStyleProvider
             }
         }
 
+        _logger.LogWarning("No comment style found for extension: {FileExtension}!", fileExtension);
         return null;
     }
 
