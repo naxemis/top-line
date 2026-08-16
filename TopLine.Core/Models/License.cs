@@ -8,4 +8,5 @@ public class License
     public string? ContactInfo { get; set; }
     public bool AllRightsReserved { get; set; } = false;
     public int Year { get; set; } = DateTime.Now.Year;
+    public ICollection<ProjectLicense> ProjectLicenses { get; init; } = new List<ProjectLicense>();
 }

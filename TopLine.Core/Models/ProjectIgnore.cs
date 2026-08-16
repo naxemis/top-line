@@ -7,4 +7,5 @@ public class ProjectIgnore
     public int ProjectId { get; set; }
     public TargetType TargetType { get; set; }
     public string Target { get; set; } = String.Empty;
+    public required Project Project { get; init; }
 }
