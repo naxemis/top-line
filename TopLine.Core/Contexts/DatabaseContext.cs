@@ -3,7 +3,7 @@ using TopLine.Core.Models;
 
 namespace TopLine.Core.Contexts;
 
-public class DatabaseContext(DbContextOptions options) : DbContext(options)
+public class DatabaseContext(DbContextOptions<DatabaseContext> options) : DbContext(options)
 {
     public DbSet<License> Licenses { get; set; }
     public DbSet<Project> Projects { get; set; }
@@ -76,6 +76,9 @@ public class DatabaseContext(DbContextOptions options) : DbContext(options)
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-
+        ConfigureLicenses(modelBuilder);
+        ConfigureProjects(modelBuilder);
+        ConfigureProjectLicenses(modelBuilder);
+        ConfigureProjectIgnores(modelBuilder);
     }
 }
