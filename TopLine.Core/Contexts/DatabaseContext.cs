@@ -60,7 +60,18 @@ public class DatabaseContext(DbContextOptions options) : DbContext(options)
 
     private void ConfigureProjectIgnores(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ProjectIgnore>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.ProjectId).IsRequired();
+            entity.Property(e => e.TargetType).IsRequired();
+            entity.Property(e => e.Target).IsRequired().HasMaxLength(512);
 
+            entity.HasOne(pi => pi.Project)
+                .WithMany(p => p.ProjectIgnores)
+                .HasForeignKey(pi => pi.ProjectId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
