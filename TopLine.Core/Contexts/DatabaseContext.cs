@@ -25,7 +25,13 @@ public class DatabaseContext(DbContextOptions options) : DbContext(options)
 
     private void ConfigureProjects(ModelBuilder modelBuilder)
     {
-
+        modelBuilder.Entity<Project>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(64);
+            entity.Property(e => e.Description).HasMaxLength(1024);
+            entity.Property(e => e.Path).IsRequired().HasMaxLength(512);
+        });
     }
 
     private void ConfigureProjectLicenses(ModelBuilder modelBuilder)
