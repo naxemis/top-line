@@ -12,7 +12,15 @@ public class DatabaseContext(DbContextOptions options) : DbContext(options)
 
     private void ConfigureLicenses(ModelBuilder modelBuilder)
     {
-
+        modelBuilder.Entity<License>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Name).IsRequired().HasMaxLength(64);
+            entity.Property(e => e.Client).IsRequired().HasMaxLength(64);
+            entity.Property(e => e.ContactInfo).HasMaxLength(128);
+            entity.Property(e => e.AllRightsReserved).HasDefaultValue(false);
+            entity.Property(e => e.Year).IsRequired(); // current year is initialized with the model
+        });
     }
 
     private void ConfigureProjects(ModelBuilder modelBuilder)
