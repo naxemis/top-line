@@ -36,7 +36,26 @@ public class DatabaseContext(DbContextOptions options) : DbContext(options)
 
     private void ConfigureProjectLicenses(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<ProjectLicense>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.ProjectId).IsRequired();
+            entity.Property(e => e.LicenseId).IsRequired();
+            entity.Property(e => e.TargetType).IsRequired();
+            entity.Property(e => e.Target).IsRequired().HasMaxLength(512);
 
+            entity.HasIndex(e => new { e.ProjectId, e.TargetType, e.Target }).IsUnique();
+
+            entity.HasOne(pl => pl.Project)
+                .WithMany(p => p.ProjectLicenses)
+                .HasForeignKey(pl => pl.ProjectId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasOne(pl => pl.License)
+                .WithMany(l => l.ProjectLicenses)
+                .HasForeignKey(pl => pl.LicenseId)
+                .OnDelete(DeleteBehavior.Restrict);
+        });
     }
 
     private void ConfigureProjectIgnores(ModelBuilder modelBuilder)
