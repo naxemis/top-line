@@ -2,7 +2,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TopLine.Core.Helpers;
 
-public class CommentStyleProvider(ILogger<CommentStyleProvider> logger)
+public class CommentStyleProvider(ILogger<CommentStyleProvider> logger) : ICommentStyleProvider
 {
     private static readonly List<string> DoubleSlashExtensions = [ ".cs", ".js", ".java", ".cpp", ".c", ".h", ".hpp", ".ts", ".go", ".rs", ".kt", ".swift" ];
     private static readonly List<string> HashExtensions = [ ".py", ".gd", ".sh", ".bash", ".yml", ".yaml", ".tf", ".rb", ".pl", ".pm" ];
