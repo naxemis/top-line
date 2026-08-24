@@ -3,7 +3,7 @@ using TopLine.Core.Models;
 
 namespace TopLine.Core.Helpers;
 
-public class LicenseHeaderFormatter(ILogger<LicenseHeaderFormatter> logger, CommentStyleProvider commentStyleProvider)
+public class LicenseHeaderFormatter(ILogger<LicenseHeaderFormatter> logger, CommentStyleProvider commentStyleProvider) : ILicenseHeaderFormatter
 {
     private List<string> BuildHeaderLines(License license)
     {
